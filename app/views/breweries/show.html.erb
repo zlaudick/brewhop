@@ -1,30 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @brewery.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @brewery.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @brewery.description %>
-</p>
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1><%= @brewery.name %></h1>
+    <p><%= @brewery.address %></p>
+    <p><%= @brewery.description %></p>
+  </div>
 
 
+  <div class="well text-center col-md-5">
+    <h3>Nearby Breweries</h3>
+    <ul>
+      <% for brewery in @brewery.nearbys(10) %>
+        <li><%= link_to brewery.name, brewery %> (<%= brewery.distance.round(2) %> miles)</li>
+      <% end %>
+    </ul>
+  </div>
 
-<h3>Nearby Breweries</h3>
-<ul>
-  <% for brewery in @brewery.nearbys(10) %>
-    <li><%= link_to brewery.name, brewery %> (<%= brewery.distance.round(2) %> miles)</li>
-  <% end %>
-</ul>
-
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-<%= link_to 'Back', breweries_path %>
+</div>
