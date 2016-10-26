@@ -8,6 +8,7 @@ class BreweriesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@breweries) do |brewery, marker|
       marker.lat brewery.latitude
       marker.lng brewery.longitude
+      marker.infowindow brewery.name
     end
   end
 

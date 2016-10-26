@@ -25,5 +25,12 @@
   <%= @brewery.name %>
 </p>
 
+<h3>Nearby Breweries</h3>
+<ul>
+  <% for brewery in @brewery.nearbys(10) %>
+    <li><%= link_to brewery.name, brewery %> (<%= brewery.distance.round(2) %> miles)</li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
