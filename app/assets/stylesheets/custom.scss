@@ -1,7 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-#link {
-  color: blue;
+.map {
+  width: 750px;
+  height: 400px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
