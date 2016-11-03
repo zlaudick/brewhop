@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '3.3.6'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'bcrypt',       '3.1.11'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
