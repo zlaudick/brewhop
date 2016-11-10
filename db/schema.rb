@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103204601) do
+ActiveRecord::Schema.define(version: 20161110224422) do
 
   create_table "breweries", force: :cascade do |t|
     t.float    "latitude"
@@ -18,8 +18,12 @@ ActiveRecord::Schema.define(version: 20161103204601) do
     t.string   "address"
     t.text     "description"
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "password_digest"
+    t.index ["email"], name: "index_breweries_on_email", unique: true
   end
 
   create_table "users", force: :cascade do |t|
