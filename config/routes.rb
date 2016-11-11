@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :users
   root 'breweries#index'
   get '/new', to: 'breweries#new'
+  post '/new', to: 'breweries#create'
 end

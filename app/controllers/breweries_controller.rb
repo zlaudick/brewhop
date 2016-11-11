@@ -30,15 +30,12 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     @brewery = Brewery.new(brewery_params)
-
-    respond_to do |format|
-      if @brewery.save
-        format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }
-        format.json { render :show, status: :created, location: @brewery }
-      else
-        format.html { render :new }
-        format.json { render json: @brewery.errors, status: :unprocessable_entity }
-      end
+    if @brewery.save
+      brewery_log_in @brewery
+      flash[:success] = "Welcome to BrewHop!"
+      redirect_to @brewery
+    else
+      render 'new'
     end
   end
 
@@ -74,6 +71,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:latitude, :longitude, :address, :description, :name)
+      params.require(:brewery).permit(:latitude, :longitude, :address, :description, :name, :email, :password, :password_confirmation)
     end
 end
