@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :breweries
   resources :users
+  resources :microposts,  only: [:create, :destroy]
   root 'breweries#index'
   get '/new', to: 'breweries#new'
   post '/new', to: 'breweries#create'

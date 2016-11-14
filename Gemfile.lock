@@ -193,6 +193,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.0)
 
 PLATFORMS
   ruby
@@ -221,6 +222,7 @@ DEPENDENCIES
   turbolinks (= 5.0.1)
   uglifier (= 3.0.0)
   web-console (= 3.1.1)
+  will_paginate (= 3.1.0)
 
 BUNDLED WITH
    1.13.3

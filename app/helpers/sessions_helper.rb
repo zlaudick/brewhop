@@ -16,6 +16,10 @@ module SessionsHelper
     @current_brewery ||= Brewery.find_by(id: session[:brewery_id])
   end
 
+  def current_brewery?(brewery)
+    brewery == current_brewery
+  end
+
   def logged_in?
     !current_user.nil?
   end

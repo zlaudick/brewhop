@@ -8,9 +8,17 @@
     <p><%= @brewery.description %></p>
   </div>
 
+
+
   <div class="row">
     <div class="well col-md-6">
       <h3>News & Events</h3>
+      <% if @brewery.microposts.any? %>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
     </div>
     <div class="well text-center col-md-5 col-md-offset-1">
       <h3>Nearby Breweries</h3>
@@ -22,5 +30,17 @@
     </div>
   </div>
 
+  <% if brewery_logged_in? %>
+    <div class="row">
+      <aside class="col-md-4">
+
+        <section class="micropost_form">
+          <%= render 'shared/micropost_form' %>
+        </section>
+      </aside>
+    </div>
+
+
 
 </div>
+<% end %>

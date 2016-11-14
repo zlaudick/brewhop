@@ -15,6 +15,9 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+    @brewery = Brewery.find(params[:id])
+    @microposts = @brewery.microposts.paginate(page: params[:page])
+    @micropost = current_brewery.microposts.build if brewery_logged_in?
   end
 
   # GET /breweries/new

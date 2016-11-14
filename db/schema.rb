@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110224422) do
+ActiveRecord::Schema.define(version: 20161114031902) do
 
   create_table "breweries", force: :cascade do |t|
     t.float    "latitude"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20161110224422) do
     t.string   "email"
     t.string   "password_digest"
     t.index ["email"], name: "index_breweries_on_email", unique: true
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brewery_id", "created_at"], name: "index_microposts_on_brewery_id_and_created_at"
+    t.index ["brewery_id"], name: "index_microposts_on_brewery_id"
   end
 
   create_table "users", force: :cascade do |t|
