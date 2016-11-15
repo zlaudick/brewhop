@@ -6,6 +6,13 @@
     <h1><%= @brewery.name %></h1>
     <p><%= @brewery.address %></p>
     <p><%= @brewery.description %></p>
+    <p>
+      <strong id="followers" class="stat">
+        <%= @brewery.followers.count %>
+      </strong>
+      followers
+    </p>
+  <%= render 'follow_form' if logged_in? %>
   </div>
 
 

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    if logged_in?
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
 
   # GET /users/new
@@ -27,7 +30,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user 
+      log_in @user
       flash[:success] = "Welcome to BrewHop!"
       redirect_to @user
     else
