@@ -1,6 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  padding-top: 20px;
+}
+
+.brewery {
+  color: #666 !important;
+}
+
+.container {
+  font-family: 'Arvo', serif;
+}
+
+.list {
+  font-family: 'Arvo', serif;
+}
+
+.btn:hover {
+  outline: none;
+  color: black;
+}
+
 .map {
   width: 750px;
   height: 400px;
@@ -23,5 +44,39 @@
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+}
+
+
+/* posts */
+.microposts {
+  list-style: none;
+  padding: 0;
+  font-family: 'Arvo', serif;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: black;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
   }
 }

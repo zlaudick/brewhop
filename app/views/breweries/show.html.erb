@@ -2,7 +2,7 @@
 
 
 <div class="container">
-  <div class="jumbotron text-center">
+  <div class="description page-header text-center">
     <h1><%= @brewery.name %></h1>
     <p><%= @brewery.address %></p>
     <p><%= @brewery.description %></p>
@@ -12,14 +12,18 @@
       </strong>
       followers
     </p>
-  <%= render 'follow_form' if logged_in? %>
+  <% if logged_in? %>
+    <%= render 'follow_form' %>
+  <% else %>
+    <p>Sign up or Log in to follow!</p>
+  <% end %>
   </div>
 
 
 
   <div class="row">
-    <div class="well col-md-6">
-      <h3>News & Events</h3>
+    <div class="col-md-6">
+      <h3 class="text-center">News & Events</h3>
       <% if @brewery.microposts.any? %>
         <ol class="microposts">
           <%= render @microposts %>
@@ -27,11 +31,11 @@
         <%= will_paginate @microposts %>
       <% end %>
     </div>
-    <div class="well text-center col-md-5 col-md-offset-1">
+    <div class="text-center col-md-5 col-md-offset-1">
       <h3>Nearby Breweries</h3>
-      <ul>
+      <ul class="list">
         <% for brewery in @brewery.nearbys(10) %>
-          <li><%= link_to brewery.name, brewery %> (<%= brewery.distance.round(2) %> miles)</li>
+          <li><%= link_to brewery.name, brewery, class: "brewery" %> (<%= brewery.distance.round(2) %> miles)</li>
         <% end %>
       </ul>
     </div>
