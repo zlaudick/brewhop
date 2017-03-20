@@ -8,9 +8,9 @@
 <h1>Brewery Sign up</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3" id="brewery-sign-up">
     <%= form_for(@brewery, url: new_path) do |f| %>
-      
+
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>

@@ -5,8 +5,34 @@ body {
   padding-top: 20px;
 }
 
+.page-header {
+  border: none;
+}
+
+.navbar-inverse {
+  background-color: #1A2D4A;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+  color: black;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+  color: black;
+  background-color: transparent;
+}
+
 .brewery {
-  color: #666 !important;
+  color: black !important;
 }
 
 .container {
@@ -22,12 +48,22 @@ body {
   color: black;
 }
 
+#nearby-breweries, #news-and-events, #login, #sign-up, #brewery-sign-up {
+  background-color: #255296;
+  border-radius: 10px;
+}
+
 .map {
   width: 750px;
   height: 400px;
   @media screen and (max-width: 768px) {
     width: 100%;
   }
+}
+
+.table {
+  background-color: #255296;
+  border-radius: 10px;
 }
 
 /* forms */

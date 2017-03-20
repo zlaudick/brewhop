@@ -22,7 +22,7 @@
 
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" id="news-and-events">
       <h3 class="text-center">News & Events</h3>
       <% if @brewery.microposts.any? %>
         <ol class="microposts">
@@ -31,7 +31,7 @@
         <%= will_paginate @microposts %>
       <% end %>
     </div>
-    <div class="text-center col-md-5 col-md-offset-1">
+    <div class="text-center col-md-5 col-md-offset-1" id="nearby-breweries">
       <h3>Nearby Breweries</h3>
       <ul class="list">
         <% for brewery in @brewery.nearbys(10) %>
